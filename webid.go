@@ -25,3 +25,11 @@ func New() (string, error) {
 	s := base64.RawURLEncoding.EncodeToString(b)
 	return s, nil
 }
+
+func MustNew() string {
+	id, err := New()
+	if err != nil {
+		panic(err)
+	}
+	return id
+}
